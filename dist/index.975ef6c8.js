@@ -597,7 +597,6 @@ var _dataJson = require("./data.json");
 var _dataJsonDefault = parcelHelpers.interopDefault(_dataJson);
 const fetchIp = ()=>fetch("https://api.db-ip.com/v2/free/self").then((response)=>!response.ok ? console.error(`Error fetched IP: ${response.status}`) : response.json());
 const fetchWeather = (city, API_KEY)=>fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`).then((response)=>!response.ok ? console.error(`Error fetched weather: ${response.status}`) : response.json());
-// const fetchWeather = (city, API_KEY) => fetch(`https://api.openweathermap.org/data/2.5/onecall/overview?lat=30.7326&lon=46.4775&appid=${API_KEY}`).then(response => !response.ok ? console.error(`Error fetched weather: ${response.status}`) : response.json());
 const setWeather = ()=>fetchIp().then((data)=>{
         // console.log(data);
         fetchWeather(data.stateProv, (0, _dataJsonDefault.default).API_KEY_openweather).then((val)=>{
